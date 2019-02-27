@@ -7,6 +7,7 @@
     "classnames": "^2.2.6",
     "jwt-decode": "^2.2.0",
     "materialize-css": "^1.0.0",
+    "materialize-social": "^1.0.3",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-redux": "^6.0.0",

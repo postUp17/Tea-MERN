@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import M from "materialize-css";
 
@@ -17,7 +17,7 @@ class Header extends Component {
 
   onLogoutClick = e => {
     e.preventDefault();
-    this.props.logoutUser();
+    this.props.logoutUser(this.props.history);
   };
   render() {
     const { isAuthenticated, user } = this.props.auth;
@@ -37,6 +37,10 @@ class Header extends Component {
 
     const authLinks = (
       <ul id="nav-mobile" className="right hide-on-med-and-down ">
+        <li>
+          <Link to="/dashboard">Dashboard</Link>
+        </li>
+
         <li>
           <Link to="/" onClick={this.onLogoutClick}>
             <img
@@ -101,4 +105,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { logoutUser }
-)(Header);
+)(withRouter(Header));
